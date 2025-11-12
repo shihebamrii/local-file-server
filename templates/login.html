@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Login - Local File Server</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=time) }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container login-container">
+    <h1>Login</h1>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        <ul>{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="post" class="login-form">
+        <input type="password" name="password" placeholder="Enter password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Local File Server</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=time) }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Local File Server</h1>
+        <a class="logout-btn" href="{{ url_for('logout') }}">Logout</a>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        <ul>{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% if current_path %}
+    <p class="back-link">
+        <a href="{{ url_for('browse', req_path=parent_path) }}">← Back</a>
+    </p>
+    {% endif %}
+
+    <!-- Directories Section -->
+    <div class="files-section">
+        <h2>Directories</h2>
+        <ul class="files">
+            {% for d in dirs %}
+            <li class="file-card folder">
+                <a href="{{ url_for('browse', req_path=(current_path + '/' + d).lstrip('/')) }}">{{ d }}</a>
+            </li>
+            {% else %}
+            <li>No directories</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Files Section -->
+    <div class="files-section">
+        <h2>Files</h2>
+        <ul class="files">
+            {% for f in files %}
+            <li class="file-card file">
+                <a href="{{ url_for('browse', req_path=(current_path + '/' + f).lstrip('/')) }}">{{ f }}</a>
+            </li>
+            {% else %}
+            <li>No files</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <h2>Upload File</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="current_path" value="{{ current_path }}">
+            <div class="upload-inputs">
+                <input type="file" name="file" required>
+                <button type="submit">Upload</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

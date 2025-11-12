@@ -1,0 +1,238 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: #e74c3c;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* Flash messages */
+.flash {
+    background: #d4edda;
+    border: 1px solid #a6d8a8;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Back link */
+.back-link a {
+    text-decoration: none;
+    color: #007bff;
+}
+.back-link a:hover {
+    color: #0056b3;
+}
+
+/* Files & Directories Section */
+.files-section h2 {
+    font-size: 1.5rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.files {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.file-card {
+    flex: 1 1 200px;
+    background: #f9f9f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.file-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    word-break: break-word;
+    display: block;
+}
+
+.file-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Icons */
+.file-card.folder a::before {
+    content: "📁 ";
+}
+
+.file-card.file a::before {
+    content: "📄 ";
+}
+
+/* Upload Section */
+.upload-section {
+    margin-top: 30px;
+}
+
+.upload-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.upload-inputs input[type="file"] {
+    flex: 1 1 200px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.upload-inputs button {
+    padding: 10px 16px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.upload-inputs button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .files {
+        flex-direction: column;
+    }
+
+    .file-card {
+        flex: 1 1 100%;
+    }
+
+    .upload-inputs {
+        flex-direction: column;
+    }
+
+    .upload-inputs button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .file-card {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+}
+/* Center login form */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Input field */
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Button (reuse style, ensure full width) */
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-form button:hover {
+    background: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 40px 20px;
+        padding: 20px;
+    }
+
+    .login-form input[type="password"], 
+    .login-form button {
+        font-size: 0.95rem;
+    }
+}
